@@ -86,6 +86,10 @@ class MyArray:
             counter += 1
         return r
 
+    def pop(self):
+        self._A = self._A[0:self._n - 1]
+        self._n -= 1
+        self._resize(self._capacity)
 
 if __name__ == '__main__':
     data = MyArray()
@@ -94,10 +98,8 @@ if __name__ == '__main__':
     data.append(3)
     data.append(4)
     data.append(5)
-    data.remove(2)
-    data.remove(3)
-    data.remove(2)
-
+    data.pop()
+    data.pop()
 
     print(data)
     print()
