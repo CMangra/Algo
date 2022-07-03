@@ -11,7 +11,7 @@ class MyArray:
         return self._n
 
     def __getitem__(self, k):
-        if not 0 <= k < self.n:
+        if not 0 <= k < self._n:
             raise IndexError('invalid index')
         return self._A[k]
 
@@ -37,30 +37,44 @@ class MyArray:
         self._A[k] = value
 
     def insert(self, k, value):
-        if not 0 <= k < self._n:
+        if not 0 <= k < len(self._A):
             raise IndexError('invalid index')
+
         end = self._A[k:]
         self._A[k] = value
-        self._n += 1
-        if self._n == self._capacity:
+        if len(self._A)+1 >= self._capacity:
             self._resize(2 * self._capacity)
-        for j in end:
-            k += 1
-            self._A[k] = j
+        counter = 0
+        for i in range(k + 1, k + len(end) + 1):
+            self._A[i] = end[counter]
+            counter += 1
+        self._n += 1
 
     def remove(self, k):
-        if not 0 <= k < self._n:
+        if not 0 <= k <= self._n:
             raise IndexError('invalid index')
-        end = self._A[k + 1:]
+
+        if k == self._n - 1:
+            end = []
+        else:
+            end = self._A[k + 1:]
+
         for j in end:
             self._A[k] = j
             k += 1
         self._A[k] = None
         self._n -= 1
 
-    def _toString_(self):
-        for element in self._A:
-            print(str(element) + ",")
+    def __str__(self):
+        r = ""
+        counter = 0
+        while counter < self._n+1:
+            if self._A[counter] is None:
+                r += "None "
+            else:
+                r += str(self._A[counter]) + " "
+            counter += 1
+        return r
 
 
 if __name__ == '__main__':
@@ -70,9 +84,15 @@ if __name__ == '__main__':
     data.append(3)
     data.append(4)
     data.remove(2)
+    print(data)
+    print()
     data.insert(2, 3)
-    print(data._toString_())
-    #data.remove(3)
-    print(data._A)
+    print(data)
+    print()
+
+    data.remove(3)
+    print(data)
+    print()
+
     data.__setitem__(0, 2)
-    print(data._A)
+    print(data)
