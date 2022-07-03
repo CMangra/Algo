@@ -32,12 +32,12 @@ class MyArray:
         return (c * ctypes.py_object)()
 
     def __setitem__(self, k, value):
-        if not 0 <= k < self.n:
+        if not 0 <= k < self._n:
             raise IndexError('invalid index')
         self._A[k] = value
 
     def insert(self, k, value):
-        if not 0 <= k < self.n:
+        if not 0 <= k < self._n:
             raise IndexError('invalid index')
         end = self._A[k:]
         self._A[k] = value
@@ -49,7 +49,7 @@ class MyArray:
             self._A[k] = j
 
     def remove(self, k):
-        if not 0 <= k < self.n:
+        if not 0 <= k < self._n:
             raise IndexError('invalid index')
         end = self._A[k + 1:]
         for j in end:
