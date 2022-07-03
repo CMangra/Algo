@@ -90,6 +90,9 @@ class MyArray:
         self._A = self._A[0:self._n - 1]
         self._n -= 1
         self._resize(self._capacity)
+        if self._n < self._capacity // 4:
+            self._resize(self._capacity//2)
+
 
 if __name__ == '__main__':
     data = MyArray()
