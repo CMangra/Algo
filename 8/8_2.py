@@ -57,3 +57,19 @@ class MyArray:
             k += 1
         self._A[k] = None
         self._n -= 1
+
+
+if __name__ == '__main__':
+    data = MyArray()
+    data.append(1)
+    data.append(2)
+    data.append(3)
+    data.append(4)
+    data.remove(2)
+    data.insert(2, 3)
+    print(data)
+    data.remove(3)
+    print(data)
+    data.__setitem__(0, 2)
+    print(data)
+
