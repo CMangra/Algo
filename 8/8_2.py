@@ -13,6 +13,8 @@ class MyArray:
     def __getitem__(self, k):
         if not 0 <= k < self._n:
             raise IndexError('invalid index')
+        elif k < 0:
+            k = abs(k)
         return self._A[k]
 
     def append(self, obj):
@@ -40,9 +42,9 @@ class MyArray:
         if not 0 <= k < len(self._A):
             raise IndexError('invalid index')
 
-        end = self._A[k:]
+        end = self._A[k:self._n]
         self._A[k] = value
-        if len(self._A)+1 >= self._capacity:
+        if len(self._A) + 1 >= self._capacity:
             self._resize(2 * self._capacity)
         counter = 0
         for i in range(k + 1, k + len(end) + 1):
@@ -57,22 +59,18 @@ class MyArray:
         if k == self._n - 1:
             end = []
         else:
-            end = self._A[k + 1:]
+            end = self._A[k + 1:self._n]
 
         for j in end:
             self._A[k] = j
             k += 1
-        self._A[k] = None
         self._n -= 1
 
     def __str__(self):
         r = ""
         counter = 0
-        while counter < self._n+1:
-            if self._A[counter] is None:
-                r += "None "
-            else:
-                r += str(self._A[counter]) + " "
+        while counter < self._n:
+            r += str(self._A[counter]) + " "
             counter += 1
         return r
 

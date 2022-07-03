@@ -1,3 +1,15 @@
+"""
+Aufgabe:
+
+Implement a pop method for the DynamicArray class, given in Code Fragment 5.3, that removes the last element of the
+array, and that shrinks the capacity, N, of the array by half any time the number of elements in the array goes below
+N/4.
+
+@Chaitanya
+Kommentar:  Code aus 8_3.py. Im Buch Seite 218. Aufgabe: implement pop function.
+
+"""
+
 import ctypes
 
 
@@ -74,15 +86,23 @@ class MyArray:
             counter += 1
         return r
 
+
 if __name__ == '__main__':
     data = MyArray()
     data.append(1)
     data.append(2)
     data.append(3)
     data.append(4)
+    data.append(5)
     data.remove(2)
+    data.remove(3)
+    data.remove(2)
+
+
     print(data)
     print()
+
+    data.append(5)
     data.insert(2, 3)
     print(data)
     print()
