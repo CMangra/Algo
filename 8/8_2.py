@@ -16,7 +16,7 @@ class MyArray:
         return self._A[k]
 
     def append(self, obj):
-        if self._n == self.capacity:
+        if self._n == self._capacity:
             self._resize(2 * self._capacity)
         self._A[self._n] = obj
         self._n += 1
@@ -42,7 +42,7 @@ class MyArray:
         end = self._A[k:]
         self._A[k] = value
         self._n += 1
-        if self._n == self.capacity:
+        if self._n == self._capacity:
             self._resize(2 * self._capacity)
         for j in end:
             k += 1
@@ -58,6 +58,10 @@ class MyArray:
         self._A[k] = None
         self._n -= 1
 
+    def _toString_(self):
+        for element in self._A:
+            print(str(element) + ",")
+
 
 if __name__ == '__main__':
     data = MyArray()
@@ -67,9 +71,8 @@ if __name__ == '__main__':
     data.append(4)
     data.remove(2)
     data.insert(2, 3)
-    print(data)
-    data.remove(3)
-    print(data)
+    print(data._toString_())
+    #data.remove(3)
+    print(data._A)
     data.__setitem__(0, 2)
-    print(data)
-
+    print(data._A)
