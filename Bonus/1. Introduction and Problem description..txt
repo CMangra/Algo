@@ -1,0 +1,31 @@
+1. Introduction and Problem description.
+
+In today's modern world, everything from photos and emails to personal information is digitalized. This phenomenon results in a humongous amount of data to be dealt with. 
+This data is often stored in "string" form (sequence of characters). Although most of the data stored makes no sense to a human reader and has nothing to do with our natural language,
+it is in some cases very useful to be able to search for a specific string pattern among this immense amount of data. 
+
+The following example shows a very simple human figure which has been pixeled in string form:
+
+		         "  BBBB  
+                       BBBBBB 
+                      ZBBBBBBZ
+                        ZZZZ  
+                        ZZZZ  
+                      WWBBBBBB
+                     BBBWWBBBBB
+                     BBBBBWWBBB
+                     BBBBBBBWWB
+                      ZBBZZBBZ 
+                      BBB  BBB 
+                      BBB  BBB 
+                      BBB  BBB 
+                      ZZZ  ZZZ "
+
+In this case the patterns "WW" represent 2 white pixels. If we wanten to change them to orange pixels "OO", we would have to either do it manually or run it through a pattern-matching
+algorithm which searches for the string pattern "WW" and replaces them with "OO".
+
+This application example is a simple one but it the real world we sometimes even have to deal with thousands of terabytes of data and finding the right pattern-matching algorithm which can 
+handle this amount of data the most efficiently is crucial. This brings us to the three pattern-matching algorithms which we are going to take into consideration:
+- The Brute-Force algorithm
+- The Boyer-Moore Algorithm
+- The Knuth-Morris-Pratt Algorithm
