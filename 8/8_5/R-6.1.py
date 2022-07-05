@@ -1,17 +1,13 @@
 """
 Aufgabe:
 
-The syntax data.remove(value) for Python list data removes only the first occurrence of element value from the list.
-Give an implementation of a function, with signature remove_all(data, value), that removes all occurrences of value
-from the given list, such that the worst-case running time of the function is O(n) on a list with n elements. Not that
-it is not efficient enough in general to rely on repeated calls to remove.
-
+What values are returned during the following series of stack operations, if
+executed upon an initially empty stack? push(5), push(3), pop(), push(2),
+push(8), pop(), pop(), push(9), push(1), pop(), push(7), push(6), pop(),
+pop(), push(4), pop(), pop().
 
 @Chaitanya
-Kommentar: Seite 248 im Buch, Code aus C-5.16.py. Implementierte Methode: remove_all(data, value)
-           Ich brauche Hilfe bei der Implementierung der Methode remove_all. Die Methode an sich funktioniert aber die
-           Komplexität ist O(n^2). Die Komplexität muss O(n) sein.
-
+Kommentar: Seite 272 im Buch. Musste nur die Ausgabe hier bestimmen.
 """
 
 import ctypes
@@ -82,7 +78,6 @@ class MyArray:
                     position_deleted += 1
                 self._n -= 1
 
-    # TODO: Die Methode soll eine Komplexität von O(n) haben.
     def remove_all(self, data, value):
         for element in data:
             if element == value:
@@ -106,33 +101,21 @@ class MyArray:
 
 if __name__ == '__main__':
     myList = MyArray()
-    myList.append(1)
-    myList.append(2)
+    myList.append(5)
     myList.append(3)
+    myList.pop()
+    myList.append(2)
+    myList.append(8)
+    myList.pop()
+    myList.pop()
+    myList.append(9)
+    myList.append(1)
+    myList.pop()
+    myList.append(7)
+    myList.append(6)
+    myList.pop()
+    myList.pop()
     myList.append(4)
-    myList.append(5)
     myList.pop()
     myList.pop()
-
-    print(myList)
-    print()
-
-    myList.append(5)
-    myList.insert(2, 3)
-    myList.append(11)
-    print(myList)
-    print()
-
-    myList.remove(11)
-    myList.append(69)
-    myList.append(69)
-    myList.append(69)
-    myList.append(69)
-    myList.append(69)
-    myList.append(69)
-    myList.remove_all(myList, 69)
-    print(myList)
-    print()
-
-    myList.__setitem__(0, 2)
     print(myList)
