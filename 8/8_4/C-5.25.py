@@ -1,3 +1,19 @@
+"""
+Aufgabe:
+
+The syntax data.remove(value) for Python list data removes only the first occurrence of element value from the list.
+Give an implementation of a function, with signature remove_all(data, value), that removes all occurrences of value
+from the given list, such that the worst-case running time of the function is O(n) on a list with n elements. Not that
+it is not efficient enough in general to rely on repeated calls to remove.
+
+
+@Chaitanya
+Kommentar: Seite 248 im Buch, Code aus C-5.16.py. Implementierte Methode: remove_all(data, value)
+           Ich brauche Hilfe bei der Implementierung der Methode remove_all. Die Methode an sich funktioniert aber die
+           Komplexität ist O(n^2). Die Komplexität muss O(n) sein.
+
+"""
+
 import ctypes
 
 
@@ -66,6 +82,11 @@ class MyArray:
                     position_deleted += 1
                 self._n -= 1
 
+    def remove_all(self, data, value):
+        for element in data:
+            if element == value:
+                data.remove(value)
+
     def __str__(self):
         r = ""
         counter = 0
@@ -74,22 +95,43 @@ class MyArray:
             counter += 1
         return r
 
+    def pop(self):
+        self._A = self._A[0:self._n - 1]
+        self._n -= 1
+        self._resize(self._capacity)
+        if self._n < self._capacity // 4:
+            self._resize(self._capacity // 2)
+
+
 if __name__ == '__main__':
-    data = MyArray()
-    data.append(1)
-    data.append(2)
-    data.append(3)
-    data.append(4)
-    data.remove(2)
-    print(data)
-    print()
-    data.insert(2, 3)
-    print(data)
+    myList = MyArray()
+    myList.append(1)
+    myList.append(2)
+    myList.append(3)
+    myList.append(4)
+    myList.append(5)
+    myList.pop()
+    myList.pop()
+
+    print(myList)
     print()
 
-    data.remove(3)
-    print(data)
+    myList.append(5)
+    myList.insert(2, 3)
+    myList.append(11)
+    print(myList)
     print()
 
-    data.__setitem__(0, 2)
-    print(data)
+    myList.remove(11)
+    myList.append(69)
+    myList.append(69)
+    myList.append(69)
+    myList.append(69)
+    myList.append(69)
+    myList.append(69)
+    myList.remove_all(myList, 69)
+    print(myList)
+    print()
+
+    myList.__setitem__(0, 2)
+    print(myList)

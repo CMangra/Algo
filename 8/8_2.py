@@ -53,18 +53,18 @@ class MyArray:
         self._n += 1
 
     def remove(self, k):
-        if not 0 <= k <= self._n:
-            raise IndexError('invalid index')
+        for i in range(self._n):
+            if self._A[i] == k:
+                position_deleted = i
+                if position_deleted == self._n - 1:
+                    end = []
+                else:
+                    end = self._A[position_deleted + 1:self._n]
 
-        if k == self._n - 1:
-            end = []
-        else:
-            end = self._A[k + 1:self._n]
-
-        for j in end:
-            self._A[k] = j
-            k += 1
-        self._n -= 1
+                for j in end:
+                    self._A[position_deleted] = j
+                    position_deleted += 1
+                self._n -= 1
 
     def __str__(self):
         r = ""

@@ -71,7 +71,7 @@ print(root)#root exists
 print(root.left)#root has a left object
 print(root.right)#root has a right object
 
-print("This is the element at the left of the root: "+root.left.data)#the data at the left of root
+print("This is the element at the left of the root: " + root.left.myList)#the data at the left of root
 
 print(root.print_inorder())
 
