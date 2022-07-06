@@ -7,7 +7,27 @@ push(8), pop(), pop(), push(9), push(1), pop(), push(7), push(6), pop(),
 pop(), push(4), pop(), pop().
 
 @Chaitanya
-Kommentar: Seite 272 im Buch. Musste nur die Ausgabe hier bestimmen.
+Kommentar: Seite 272 im Buch. Program ausführen, um Lösung zu überprüfen-
+Lösungsweg:
+        Operation       Return Value        Stack Contents
+        push(5)         -                   [5]
+        push(3)         -                   [5, 3]
+        pop()           3                   [5]
+        push(2)         2                   [5, 2]
+        push(8)         -                   [5, 2, 8]
+        pop()           8                   [5, 2]
+        pop()           2                   [5]
+        push(9)         -                   [5, 9]
+        push(1)         -                   [5, 9, 1]
+        pop()           1                   [5, 9]
+        push(7)         -                   [5, 9, 7]
+        push(6)         -                   [5, 9, 7, 6]
+        pop()           6                   [5, 9, 7]
+        pop()           7                   [5, 9]
+        push(4)         -                   [5, 9, 4]
+        pop()           4                   [5, 9]
+        pop()           9                   [5]
+
 """
 
 import ctypes

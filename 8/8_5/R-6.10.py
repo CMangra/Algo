@@ -1,7 +1,7 @@
 """
 Aufgabe:
 
-Consider what happens if the loop in the ArrayQueue. resize method at
+Consider what happens if the loop in the ArrayQueue._resize method at
 lines 53-55 of Code Fragment 6.7 had been implemented as:
 
    for k in range(self._size):
@@ -10,11 +10,11 @@ lines 53-55 of Code Fragment 6.7 had been implemented as:
 Give a clear explanation of what could go wrong.
 
 @Chaitanya:
-Kommentar: Aufgabe noch nicht angefangen
+Lösung: The queue that we have is a circular queue. Which means when the _front is at the end of the ArrayQueue but the
+        ArrayQueue is not full, we continue to add at the first position of the queue. By doing 'self._data[k] = old[k]'
+        'rather than old[walk]' we will break the way the circular queue is sorted.
 
 """
-
-
 
 from Wiederholung.LinkedStack import Empty
 
@@ -62,7 +62,7 @@ class ArrayQueue:
     def enqueue(self, e):
         """Add an element to the back of queue."""
         if self._size == len(self._data):
-            self._resize(2 * len(self.data))  # double the array size
+            self._resize(2 * len(self._data))  # double the array size
         avail = (self._front + self._size) % len(self._data)
         self._data[avail] = e
         self._size += 1
