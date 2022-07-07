@@ -3,6 +3,9 @@ Aufgabe:
 
 Implement a queue using a singly linked list.
 
+@Chaitanya
+Der linked queue funktioniert.
+
 """
 from Wiederholung.LinkedStack import Empty
 
@@ -35,11 +38,17 @@ class LinkedQueue:
             new_node = self.Node(e, None)
             self._tail._previous = new_node
             self._tail = new_node
+            self._size += 1
 
     def first(self):
         if self.is_empty():
             raise Empty('Stack is empty')
         return self._head._element
+
+    def last(self):
+        if self.is_empty():
+            raise Empty('Stack is empty')
+        return self._tail._element
 
     def dequeue(self):
         if self.is_empty():
@@ -48,3 +57,20 @@ class LinkedQueue:
         self._head = self._head._previous
         self._size -= 1
         return answer
+
+
+if __name__ == "__main__":
+    linkedQueue = LinkedQueue()
+    linkedQueue.enqueue(1)
+    linkedQueue.enqueue(2)
+    linkedQueue.enqueue(3)
+    linkedQueue.enqueue(4)
+    print(linkedQueue.first())
+    print(linkedQueue.last())
+
+    print(linkedQueue.dequeue())
+    print(linkedQueue.dequeue())
+    print(linkedQueue.dequeue())
+    print(linkedQueue.dequeue())
+    linkedQueue.enqueue(5)
+    print(linkedQueue.dequeue())
