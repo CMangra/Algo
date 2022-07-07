@@ -27,7 +27,7 @@ class LinkedStack:
         if self.is_empty():
             raise Empty('Stack is empty')
         result = self._head._element
-        self._head = self._head._previous
+        self._head = self._head._next
         self._size -= 1
         return result
     
