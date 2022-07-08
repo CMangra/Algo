@@ -80,11 +80,11 @@ class CircularQueue:
             answer = 0
         else:
             is_more_elements = True
-            current_element = self._tail._next
+            current_node = self._tail._next
             while is_more_elements:
                 answer += 1
-                current_element = current_element._next
-                if current_element == self._tail._next:
+                current_node = current_node._next
+                if current_node == self._tail._next:
                     is_more_elements = False
 
         return answer
