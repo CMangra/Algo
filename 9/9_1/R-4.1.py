@@ -5,6 +5,8 @@ Describe a recursive algorithm for finding the maximum element in a sequence, S,
 What is your running time and space usage
 
 @Chaitanya
+Kommentar: Seite 202 im Buch
+Lösung:
 Time complexity: O(n)
 Space complexity: O(n)
 """
