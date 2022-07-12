@@ -47,7 +47,6 @@ if __name__ == '__main__':
     S = [1, 3, 69, -1, 600, -69, 30, 92, -600]
     print(quick_sort(S))
 
-    L = []
     for i in range(10000):
         S.append(i)
 
