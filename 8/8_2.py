@@ -14,7 +14,7 @@ class MyArray:
         if not 0 <= k < self._n:
             raise IndexError('invalid index')
         elif k < 0:
-            k = abs(k)
+            k = self._n + k
         return self._A[k]
 
     def append(self, obj):
@@ -39,7 +39,7 @@ class MyArray:
         self._A[k] = value
 
     def insert(self, k, value):
-        if not 0 <= k < len(self._A):
+        if not (-1* self._n) <= k < slef._n:
             raise IndexError('invalid index')
 
         end = self._A[k:self._n]
